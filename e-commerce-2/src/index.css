@@ -1,0 +1,629 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: system-ui;
+}
+
+body {
+  background: #f7f9fc;
+}
+body main {
+  min-width: 1440px;
+}
+body main header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main header nav {
+  width: 100%;
+  height: 64px;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+body main header nav .left-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main header nav .left-nav .logo {
+  margin-right: 20px;
+}
+body main header nav .left-nav .logo a {
+  text-decoration: none;
+  color: #000000;
+}
+body main header nav .left-nav .logo a h1 {
+  font-size: 25px;
+  font-weight: 400;
+}
+body main header nav .left-nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main header nav .left-nav .menu li {
+  list-style-type: none;
+}
+body main header nav .left-nav .menu li a {
+  text-decoration: none;
+  color: #000000;
+  margin-left: 20px;
+}
+body main header nav .right-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main header nav .right-nav a {
+  text-decoration: none;
+}
+body main header nav .right-nav a button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #258BD2;
+  color: #ffffff;
+}
+body main header nav .right-nav a:nth-child(1) button {
+  background: unset;
+  color: #000000;
+}
+body main .home .home-container {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url(https://images.unsplash.com/photo-1628413993904-94ecb60f1239?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWlyJTIwam9yZGFufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60) no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  color: #000000;
+}
+body main .home .home-container h1 {
+  font-size: 50px;
+  font-weight: 400;
+}
+body main .home .home-container p {
+  margin: 20px 0;
+  font-size: 18px;
+}
+body main .home .home-container a {
+  text-decoration: none;
+  margin-top: 10px;
+}
+body main .home .home-container a button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 50px;
+  padding: 0 40px;
+  background: #258BD2;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+body main .home .home-container a button:hover {
+  background: #2075b1;
+}
+body main .home .searching {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 50px 20px;
+}
+body main .home .searching h3 {
+  font-size: 25px;
+  font-weight: 400;
+}
+body main .home .searching input {
+  width: 500px;
+  margin-top: 20px;
+  height: 50px;
+  font-size: 16px;
+  padding: 0 15px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+  border: 1px solid transparent;
+}
+body main .home .searching input:focus {
+  border: 1px solid #258BD2;
+}
+body main .home .loading-products {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main .home .loading-products .circle {
+  width: 100px;
+  height: 100px;
+  border: 3px solid #000000;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: rotation 0.3s linear infinite;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+body main .home .popup {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body main .home .popup .quick-view {
+  width: 1000px;
+  height: 600px;
+  background: #f7f9fc;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: flex-start;
+}
+body main .home .popup .quick-view .quick-view-image {
+  width: 600px;
+}
+body main .home .popup .quick-view .quick-view-image img {
+  width: 100%;
+}
+body main .home .popup .quick-view .quick-view-content {
+  margin-left: 15px;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  width: 400px;
+}
+body main .home .popup .quick-view .quick-view-content h1 {
+  font-size: 30px;
+  color: #000000;
+}
+body main .home .popup .quick-view .quick-view-content b {
+  font-size: 20px;
+  margin-top: 10px;
+  color: green;
+  font-weight: 400;
+}
+body main .home .popup .quick-view .quick-view-content .desc {
+  margin-top: 20px;
+}
+body main .home .popup .quick-view .quick-view-content .desc h3 {
+  font-size: 20px;
+}
+body main .home .popup .quick-view .quick-view-content .desc p {
+  font-size: 16px;
+  margin-top: 5px;
+}
+body main .home .popup .quick-view .quick-view-content .close-add {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+body main .home .popup .quick-view .quick-view-content .close-add button {
+  height: 40px;
+  padding: 0 40px;
+  background: #258BD2;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #ffffff;
+  border-radius: 40px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px #999;
+}
+body main .home .popup .quick-view .quick-view-content .close-add button:nth-child(1) {
+  margin-right: 10px;
+  background: red;
+}
+body main .home .products-review {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 20px 50px 20px;
+  max-width: 1440px;
+  margin: auto;
+}
+body main .home .products-review .product-display {
+  width: 350px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+  border-radius: 5px;
+  margin: 20px;
+  padding: 10px;
+  position: relative;
+}
+body main .home .products-review .product-display .product-brand {
+  padding: 5px 10px;
+  background: orange;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 30px;
+}
+body main .home .products-review .product-display .product-brand p {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+}
+body main .home .products-review .product-display .product-display-image {
+  width: 100%;
+  height: 200px;
+}
+body main .home .products-review .product-display .product-display-content {
+  padding: 30px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+body main .home .products-review .product-display .product-display-content h1 {
+  font-size: 20px;
+  font-weight: 400;
+}
+body main .home .products-review .product-display .product-display-content p {
+  font-size: 18px;
+  color: green;
+  margin-top: 10px;
+}
+body main .home .products-review .product-display .product-display-content .view-cart {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+}
+body main .home .products-review .product-display .product-display-content .view-cart button {
+  height: 40px;
+  padding: 0 30px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+body main .home .products-review .product-display .product-display-content .view-cart button:nth-child(1) {
+  margin-right: 10px;
+  background: #eee;
+}
+body main .home .products-review .product-display .product-display-content .view-cart button:nth-child(2) {
+  background: #258BD2;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+body main .home .products-review .product-display .product-display-content .view-cart button:nth-child(2):hover {
+  background: #2075b1;
+}
+body main .home .view-more-products {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 100px;
+}
+body main .home .view-more-products a {
+  text-decoration: none;
+  color: #258BD2;
+  font-size: 16px;
+}
+body main .home .view-more-products a:hover {
+  text-decoration: underline;
+}
+body main .login {
+  width: 100%;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main .login .login-success {
+  width: 500px;
+  padding: 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+  border-radius: 5px;
+}
+body main .login .login-success h1 {
+  font-size: 20px;
+  color: green;
+  font-weight: 400;
+}
+body main .login .login-success a {
+  text-decoration: none;
+  color: #ffffff;
+}
+body main .login .login-success a button {
+  margin-top: 20px;
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #258BD2;
+  color: #ffffff;
+}
+body main .login form {
+  width: 500px;
+  padding: 40px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+}
+body main .login form h1 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+body main .login form input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid transparent;
+  background: #eee;
+  transition: border 0.2s;
+}
+body main .login form input:focus {
+  border: 1px solid #258BD2;
+}
+body main .login form button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #258BD2;
+  height: 50px;
+  margin-top: 10px;
+  width: 100%;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+body main .login form button:hover {
+  background: #2075b1;
+}
+body main .login form p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+body main .login form p a {
+  text-decoration: underline;
+  color: #258BD2;
+}
+body main .signup {
+  width: 100%;
+  padding: 100px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+}
+body main .signup .register-success {
+  width: 500px;
+  padding: 40px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+  border-radius: 5px;
+}
+body main .signup .register-success h1 {
+  font-size: 20px;
+  color: green;
+  font-weight: 400;
+}
+body main .signup .register-success a {
+  text-decoration: none;
+  color: #ffffff;
+}
+body main .signup .register-success a button {
+  margin-top: 20px;
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #258BD2;
+  color: #ffffff;
+}
+body main .signup form {
+  width: 500px;
+  padding: 40px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+}
+body main .signup form h1 {
+  font-size: 30px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+body main .signup form input {
+  width: 100%;
+  height: 50px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  border: 1px solid transparent;
+  background: #eee;
+  transition: border 0.2s;
+}
+body main .signup form input:focus {
+  border: 1px solid #258BD2;
+}
+body main .signup form b {
+  margin: 10px 0;
+  text-decoration: underline;
+  cursor: pointer;
+}
+body main .signup form button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  background: #258BD2;
+  height: 50px;
+  margin-top: 10px;
+  width: 100%;
+  color: #ffffff;
+  transition: background-color 0.2s;
+}
+body main .signup form button:hover {
+  background: #2075b1;
+}
+body main .signup form p {
+  margin-top: 20px;
+  font-size: 16px;
+}
+body main .signup form p a {
+  text-decoration: underline;
+  color: #258BD2;
+}
+body main footer {
+  width: 100%;
+  padding: 40px 50px;
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  justify-content: space-between;
+  margin: auto;
+}
+body main footer .left-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main footer .left-nav .logo {
+  margin-right: 20px;
+}
+body main footer .left-nav .logo a {
+  text-decoration: none;
+  color: #000000;
+}
+body main footer .left-nav .logo a h1 {
+  font-size: 25px;
+  font-weight: 400;
+}
+body main footer .left-nav .menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+body main footer .left-nav .menu li {
+  list-style-type: none;
+}
+body main footer .left-nav .menu li a {
+  text-decoration: none;
+  color: #000000;
+  margin-left: 20px;
+}
+body main footer .right-nav {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+body main footer .right-nav p {
+  font-size: 16px;
+}
+body main footer .right-nav .form {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+body main footer .right-nav .form input {
+  width: 200px;
+  height: 40px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1254901961);
+  font-size: 16px;
+  padding: 0 15px;
+}
+body main footer .right-nav .form button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #258BD2;
+  font-size: 16px;
+  color: #ffffff;
+  margin-left: 10px;
+}/*# sourceMappingURL=index.css.map */

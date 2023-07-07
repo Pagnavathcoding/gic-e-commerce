@@ -1,0 +1,585 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: system-ui;
+}
+@mixin center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+@mixin button() {
+    height: 40px;
+    padding: 0 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+$light: #ffffff;
+$style: #258BD2;
+$dark: #000000;
+$lightgray: #eee;
+$style-hover: #2075b1;
+$light-blue: #f7f9fc;
+$price: green;
+$brand: orange;
+body {
+    background: $light-blue;
+    main {
+        min-width: 1440px;
+        header {
+            width: 100%;
+            @include center();
+            nav {
+                width: 100%;
+                height: 64px;
+                max-width: 1440px;
+                @include center();
+                justify-content: space-between;
+                padding: 0 50px;
+                .left-nav {
+                    @include center();
+                    .logo {
+                        margin-right: 20px;
+                        a {
+                            text-decoration: none;
+                            color: $dark;
+                            h1 {
+                                font-size: 25px;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    .menu {
+                        @include center();
+                        li {
+                            list-style-type: none;
+                            a {
+                                text-decoration: none;
+                                color: $dark;
+                                margin-left: 20px;
+                            }
+                        }
+                    }
+                }
+                .right-nav {
+                    @include center();
+                    a {
+                        text-decoration: none;
+                        button {
+                            @include button();
+                            background: $style;
+                            color: $light;
+                        }
+                        &:nth-child(1) {
+                            button {
+                                background: unset;
+                                color: $dark;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .home {
+            .home-container {
+                width: 100%;
+                height: 500px;
+                background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),url(https://images.unsplash.com/photo-1628413993904-94ecb60f1239?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWlyJTIwam9yZGFufGVufDB8fDB8fHww&auto=format&fit=crop&w=800&q=60) no-repeat;
+                background-size: cover;
+                background-position: center;
+                @include center();
+                flex-direction: column;
+                color: $dark;
+                h1 {
+                    font-size: 50px;
+                    font-weight: 400;
+                }
+                p {
+                    margin: 20px 0;
+                    font-size: 18px;
+                }
+                a {
+                    text-decoration: none;
+                    margin-top: 10px;
+                    button {
+                        @include button();
+                        height: 50px;
+                        padding: 0 40px;
+                        background: $style;
+                        color: $light;
+                        transition: background-color 0.2s;
+                        &:hover {
+                            background: $style-hover;
+                        }
+                    }
+                }
+            }
+            .searching {
+                width: 100%;
+                @include center();
+                flex-direction: column;
+                padding: 50px 20px;
+                h3 {
+                    font-size: 25px;
+                    font-weight: 400;
+                }
+                input {
+                    width: 500px;
+                    margin-top: 20px;
+                    height: 50px;
+                    font-size: 16px;
+                    padding: 0 15px;
+                    border: none;
+                    outline: none;
+                    border-radius: 5px;
+                    box-shadow: 0 2px 4px #00000020;
+                    border: 1px solid transparent;
+                    &:focus {
+                        border: 1px solid $style;
+                    }
+                }
+            }
+            .loading-products {
+                width: 100%;
+                height: 300px;
+                @include center();
+                .circle {
+                    width: 100px;
+                    height: 100px;
+                    border: 3px solid $dark;
+                    border-left-color: transparent;
+                    border-right-color: transparent;
+                    border-radius: 50%;
+                    animation: rotation 0.3s linear infinite;
+                }
+                @keyframes rotation {
+                    0% {
+                        transform: rotate(180deg);
+                    } 100% {
+                        transform: rotate(0deg);
+                    }
+                }
+            }
+            .popup {
+                width: 100%;
+                height: 100vh;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0,0,0,0.5);
+                z-index: 1000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .quick-view {
+                    width: 1000px;
+                    height: 600px;
+                    background: $light-blue;
+                    padding: 20px;
+                    border-radius: 5px;
+                    display: flex;
+                    align-items: flex-start;
+                    .quick-view-image {
+                        width: 600px;
+                        img {
+                            width: 100%;
+                        }
+                    }
+                    .quick-view-content {
+                        margin-left: 15px;
+                        display: flex;
+                        align-items: flex-start;
+                        flex-direction: column;
+                        width: 400px;
+                        h1 {
+                            font-size: 30px;
+                            color: $dark;
+                        }
+                        b {
+                            font-size: 20px;
+                            margin-top: 10px;
+                            color: $price;
+                            font-weight: 400;
+                        }
+                        .desc {
+                            margin-top: 20px;
+                            h3 {
+                                font-size: 20px;
+                            }
+                            p {
+                                font-size: 16px;
+                                margin-top: 5px;
+                            }
+                        }
+                        .close-add {
+                            margin-top: 40px;
+                            width: 100%;
+                            display: flex;
+                            align-items: flex-end;
+                            justify-content: flex-end;
+                            button {
+                                height: 40px;
+                                padding: 0 40px;
+                                background: $style;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+                                color: $light;
+                                border-radius: 40px;
+                                font-size: 16px;
+                                box-shadow: 0 2px 5px #999;
+                                &:nth-child(1) {
+                                    margin-right: 10px;
+                                    background: red;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .products-review {
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                padding: 50px 20px 50px 20px;
+                max-width: 1440px;
+                margin: auto;
+                .product-display {
+                    width: 350px;
+                    background: $light;
+                    box-shadow: 0 2px 4px #00000020;
+                    border-radius: 5px;
+                    margin: 20px;
+                    padding: 10px;
+                    position: relative;
+                    .product-brand {
+                        padding: 5px 10px;
+                        background: $brand;
+                        position: absolute;
+                        top: 10px;
+                        right: 10px;
+                        border-radius: 30px;
+                        p {
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            color: $light;
+                        }
+                    }
+                    .product-display-image {
+                        width: 100%;
+                        height: 200px;
+                    }
+                    .product-display-content {
+                        padding: 30px 10px;
+                        @include center();
+                        flex-direction: column;
+                        h1 {
+                            font-size: 20px;
+                            font-weight: 400;
+                        }
+                        p {
+                            font-size: 18px;
+                            color: $price;
+                            margin-top: 10px;
+                        }
+                        .view-cart {
+                            width: 100%;
+                            @include center();
+                            margin-top: 20px;
+                            button {
+                                height: 40px;
+                                padding: 0 30px;
+                                font-size: 16px;
+                                border: none;
+                                outline: none;
+                                cursor: pointer;
+                                border-radius: 30px;
+                                &:nth-child(1) {
+                                    margin-right: 10px;
+                                    background: $lightgray;
+                                }
+                                &:nth-child(2) {
+                                    background: $style;
+                                    color: $light;
+                                    transition: background-color 0.2s;
+                                    &:hover {
+                                        background: $style-hover;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .view-more-products {
+                width: 100%;
+                @include center();
+                margin-bottom: 100px;
+                a {
+                    text-decoration: none;
+                    color: $style;
+                    font-size: 16px;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .login {
+            width: 100%;
+            padding: 100px 20px;
+            @include center();
+            .login-success {
+                width: 500px;
+                padding: 40px;
+                background: $light;
+                box-shadow: 0 2px 4px #00000020;
+                border-radius: 5px;
+                h1 {
+                    font-size: 20px;
+                    color: green;
+                    font-weight: 400;
+                }
+                a {
+                    text-decoration: none;
+                    color: $light;
+                    button {
+                        margin-top: 20px;
+                        @include button();
+                        background: $style;
+                        color: $light;
+                    }
+                }
+            }
+            form {
+                width: 500px;
+                padding: 40px;
+                background: $light;
+                @include center();
+                flex-direction: column;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px #00000020;
+                h1 {
+                    font-size: 30px;
+                    font-weight: 400;
+                    margin-bottom: 10px;
+                }
+                input {
+                    width: 100%;
+                    height: 50px;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                    padding: 0 20px;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    border: 1px solid transparent;
+                    background: #eee;
+                    transition: border 0.2s;
+                    &:focus {
+                        border: 1px solid $style;
+                    }
+                }
+                button {
+                    @include button();
+                    background: $style;
+                    height: 50px;
+                    margin-top: 10px;
+                    width: 100%;
+                    color: $light;
+                    transition: background-color 0.2s;
+                    &:hover {
+                        background: $style-hover;
+                    }
+                }
+                p {
+                    margin-top: 20px;
+                    font-size: 16px;
+                    a {
+                        text-decoration: underline;
+                        color: $style;
+                    }
+                }
+            }
+        }
+        .signup {
+            width: 100%;
+            padding: 100px 20px;
+            @include center();
+            flex-direction: column;
+            .register-success {
+                width: 500px;
+                padding: 40px;
+                background: $light;
+                box-shadow: 0 2px 4px #00000020;
+                border-radius: 5px;
+                h1 {
+                    font-size: 20px;
+                    color: green;
+                    font-weight: 400;
+                }
+                a {
+                    text-decoration: none;
+                    color: $light;
+                    button {
+                        margin-top: 20px;
+                        @include button();
+                        background: $style;
+                        color: $light;
+                    }
+                }
+            }
+            form {
+                width: 500px;
+                padding: 40px;
+                background: $light;
+                @include center();
+                flex-direction: column;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px #00000020;
+                h1 {
+                    font-size: 30px;
+                    font-weight: 400;
+                    margin-bottom: 10px;
+                }
+                input {
+                    width: 100%;
+                    height: 50px;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+                    padding: 0 20px;
+                    border-radius: 5px;
+                    margin-top: 10px;
+                    border: 1px solid transparent;
+                    background: #eee;
+                    transition: border 0.2s;
+                    &:focus {
+                        border: 1px solid $style;
+                    }
+                }
+                b {
+                    margin: 10px 0;
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                button {
+                    @include button();
+                    background: $style;
+                    height: 50px;
+                    margin-top: 10px;
+                    width: 100%;
+                    color: $light;
+                    transition: background-color 0.2s;
+                    &:hover {
+                        background: $style-hover;
+                    }
+                }
+                p {
+                    margin-top: 20px;
+                    font-size: 16px;
+                    a {
+                        text-decoration: underline;
+                        color: $style;
+                    }
+                }
+            }
+        }
+        // .products {
+        //     width: 100%;
+        //     .products-container {
+        //         width: 100%;
+        //         max-width: 1440px;
+        //         margin: auto;
+        //         display: flex;
+        //         .product {
+        //             width: 350px;
+        //             background: $light;
+        //             padding: 20px;
+        //             box-shadow: 0 2px 4px #0000001b;
+        //             border-radius: 5px;
+        //             .product-image {
+        //                 width: 100%;
+        //                 height: 200px;
+        //                 border-radius: 5px;
+        //             }
+        //         }
+        //     }
+        // }
+        footer {
+            width: 100%;
+            padding: 40px 50px;
+            max-width: 1440px;
+            @include center();
+            justify-content: space-between;
+            margin: auto;
+            .left-nav {
+                @include center();
+                .logo {
+                    margin-right: 20px;
+                    a {
+                        text-decoration: none;
+                        color: $dark;
+                        h1 {
+                            font-size: 25px;
+                            font-weight: 400;
+                        }
+                    }
+                }
+                .menu {
+                    @include center();
+                    li {
+                        list-style-type: none;
+                        a {
+                            text-decoration: none;
+                            color: $dark;
+                            margin-left: 20px;
+                        }
+                    }
+                }
+            }
+            .right-nav {
+                display: flex;
+                align-items: flex-start;
+                flex-direction: column;
+                p {
+                    font-size: 16px;
+                }
+                .form {
+                    margin-top: 10px;
+                    display: flex;
+                    align-items: center;
+                    input {
+                        width: 200px;
+                        height: 40px;
+                        border: none;
+                        outline: none;
+                        border-radius: 5px;
+                        box-shadow: 0 2px 4px #00000020;
+                        font-size: 16px;
+                        padding: 0 15px;
+                    }
+                    button {
+                        height: 40px;
+                        padding: 0 20px;
+                        border: none;
+                        outline: none;
+                        cursor: pointer;
+                        border-radius :5px;
+                        background: $style;
+                        font-size: 16px;
+                        color: $light;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
